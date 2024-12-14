@@ -15,13 +15,9 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
 import { sidebarItems } from "@/app/constants/sidebar";
-import Link from "next/link";
 
 export function DashboardSidebar({
   ...props
