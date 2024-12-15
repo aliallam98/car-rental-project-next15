@@ -6,7 +6,7 @@ const CategoryCreationPage = () => {
   return (
     <SectionWithContainer>
       <PageHeader
-        headerTitle="Categories"
+        headerTitle="Create Category"
         buttonTitle="Go Back"
         linkHref="/categories"
         icon={ArrowLeft}

@@ -18,6 +18,7 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import { sidebarItems } from "@/app/constants/sidebar";
+import Link from "next/link";
 
 export function DashboardSidebar({
   ...props
@@ -33,10 +34,15 @@ export function DashboardSidebar({
           <SidebarMenu>
             {sidebarItems.map((item) => (
               <SidebarMenuItem key={item.name}>
-                <SidebarMenuButton tooltip={item.name} className="h-full py-3">
-                  {item.icon && <item.icon />}
-                  <span>{item.name}</span>
-                </SidebarMenuButton>
+                <Link href={item.href}>
+                  <SidebarMenuButton
+                    tooltip={item.name}
+                    className="h-full py-3"
+                  >
+                    {item.icon && <item.icon />}
+                    <span>{item.name}</span>
+                  </SidebarMenuButton>
+                </Link>
               </SidebarMenuItem>
             ))}
           </SidebarMenu>
