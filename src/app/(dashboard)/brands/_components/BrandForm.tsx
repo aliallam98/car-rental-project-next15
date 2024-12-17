@@ -15,14 +15,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { categoryFormSchema, ICategorySchema } from "@/schemas";
+import { brandFormSchema, IBrandSchema } from "@/schemas";
 
-export default function CategoryForm() {
-  const form = useForm<ICategorySchema>({
-    resolver: zodResolver(categoryFormSchema),
+export default function BrandForm() {
+  const form = useForm<IBrandSchema>({
+    resolver: zodResolver(brandFormSchema),
   });
 
-  function onSubmit(values: ICategorySchema) {
+  function onSubmit(values: IBrandSchema) {
     try {
       console.log(values);
       toast(
