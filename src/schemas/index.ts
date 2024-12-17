@@ -31,3 +31,21 @@ export const vehicleFormSchema = z.object({
 });
 
 export type IVehicleSchema = z.infer<typeof vehicleFormSchema>;
+
+
+export const customerFormSchema = z.object({
+    fullName: z.string().min(2),
+    email: z.string().optional(),
+    phoneNumber: z.string(),
+    addressOne: z.string().min(1),
+    addressTwo: z.string().optional(),
+    customerType: z.string(),
+    personalId: z.string(),
+    emergencyContactName: z.string(),
+    emergencyContactRelationship: z.string(),
+    emergencyContactPhoneNumber: z.string(),
+    licenseNumber: z.string().optional(),
+    licenseExpirationDate: z.coerce.date().optional(),
+})
+
+export type ICustomerSchema = z.infer<typeof customerFormSchema>;
