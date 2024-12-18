@@ -1,6 +1,7 @@
 import SectionWithContainer from "@/components/SectionWithContainer";
 import { PageHeader } from "../../_components/PageHeader";
 import { ArrowLeft } from "lucide-react";
+import ReservationFrom from "../_components/ReservationFrom";
 
 const page = () => {
   return (
@@ -11,6 +12,7 @@ const page = () => {
         linkHref="/reservations"
         icon={ArrowLeft}
       />
+      <ReservationFrom/>
     </SectionWithContainer>
   );
 };
