@@ -11,7 +11,7 @@ interface IProps {
 
 export function PageHeader({ headerTitle,buttonTitle, linkHref, icon: Icon }: IProps) {
   return (
-    <div className="flex items-center justify-between p-4 mb-6 border-b bg-background shadow-sm">
+    <div className="sticky top-0 flex items-center justify-between p-1 mb-6 border-b bg-background shadow-sm ">
       <h1 className="text-2xl font-bold">{headerTitle}</h1>
       <Button variant="ghost" size="sm" asChild>
         <Link href={linkHref} className="flex items-center">

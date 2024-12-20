@@ -17,22 +17,45 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { brandFormSchema, IBrandSchema } from "@/schemas";
 
-export default function BrandForm() {
+interface IProps {
+  brand?: Partial<IBrandSchema>;
+}
+
+export default function BrandForm({ brand }: IProps) {
   const form = useForm<IBrandSchema>({
     resolver: zodResolver(brandFormSchema),
+    defaultValues: brand ? brand : {},
   });
 
   function onSubmit(values: IBrandSchema) {
-    try {
-      console.log(values);
-      toast(
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      );
-    } catch (error) {
-      console.error("Form submission error", error);
-      toast.error("Failed to submit the form. Please try again.");
+    if (brand) {
+      try {
+        console.log(values);
+        toast(
+          <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+            <code className="text-white">
+              {JSON.stringify(values, null, 2)}
+            </code>
+          </pre>
+        );
+      } catch (error) {
+        console.error("Form submission error", error);
+        toast.error("Failed to submit the form. Please try again.");
+      }
+    } else {
+      try {
+        console.log(values);
+        toast(
+          <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+            <code className="text-white">
+              {JSON.stringify(values, null, 2)}
+            </code>
+          </pre>
+        );
+      } catch (error) {
+        console.error("Form submission error", error);
+        toast.error("Failed to submit the form. Please try again.");
+      }
     }
   }
 

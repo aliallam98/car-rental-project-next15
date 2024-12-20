@@ -1,6 +1,7 @@
 import SectionWithContainer from "@/components/SectionWithContainer";
 import { PageHeader } from "../../_components/PageHeader";
 import { ArrowLeft } from "lucide-react";
+import VehicleForm from "../_components/VehicleForm";
 
 const VehicleCreationPage = () => {
   return (
@@ -11,6 +12,7 @@ const VehicleCreationPage = () => {
         linkHref="/vehicles"
         icon={ArrowLeft}
       />
+      <VehicleForm/>
     </SectionWithContainer>
   );
 };

@@ -1,8 +1,20 @@
 import SectionWithContainer from "@/components/SectionWithContainer";
 import { ArrowLeft } from "lucide-react";
 import { PageHeader } from "../../_components/PageHeader";
+import BrandForm from "../_components/BrandForm";
 
 const BrandEditionPage = () => {
+  //Fetch category here
+  const x = {
+    id: 12,
+    name: "John Doe",
+    description: "john@example.com",
+  };
+
+  //handle notFound
+  //handle error
+  //handle loading
+
   return (
     <SectionWithContainer>
       <PageHeader
@@ -11,6 +23,7 @@ const BrandEditionPage = () => {
         linkHref="/categories"
         icon={ArrowLeft}
       />
+      <BrandForm brand={x} />
     </SectionWithContainer>
   );
 };

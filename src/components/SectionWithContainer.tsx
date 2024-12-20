@@ -1,6 +1,6 @@
 const SectionWithContainer = ({ children }: { children: React.ReactNode }) => {
   return (
-    <section className="py-10 md:py-20 ">
+    <section className="pb-10 md:pb-20 overflow-y-scroll h-screen">
       <div className="container">{children}</div>
     </section>
   );

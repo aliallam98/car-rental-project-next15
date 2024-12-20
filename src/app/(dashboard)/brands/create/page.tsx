@@ -1,6 +1,7 @@
 import SectionWithContainer from "@/components/SectionWithContainer";
 import { PageHeader } from "../../_components/PageHeader";
 import { ArrowLeft } from "lucide-react";
+import BrandForm from "../_components/BrandForm";
 
 const BrandCreationPage = () => {
   return (
@@ -11,6 +12,7 @@ const BrandCreationPage = () => {
         linkHref="/categories"
         icon={ArrowLeft}
       />
+      <BrandForm/>
     </SectionWithContainer>
   );
 };

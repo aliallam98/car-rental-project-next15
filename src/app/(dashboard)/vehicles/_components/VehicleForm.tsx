@@ -32,7 +32,10 @@ import { Check, ChevronsUpDown } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { IVehicleSchema, vehicleFormSchema } from "@/schemas";
 
-export default function VehicleForm() {
+interface IProps {
+  vehicle?: Partial<IVehicleSchema>;
+}
+export default function VehicleForm({ vehicle }: IProps) {
   const languages = [
     {
       label: "English",
@@ -73,19 +76,38 @@ export default function VehicleForm() {
   ] as const;
   const form = useForm<IVehicleSchema>({
     resolver: zodResolver(vehicleFormSchema),
+    defaultValues: vehicle ? vehicle : {},
   });
 
   function onSubmit(values: IVehicleSchema) {
-    try {
-      console.log(values);
-      toast(
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      );
-    } catch (error) {
-      console.error("Form submission error", error);
-      toast.error("Failed to submit the form. Please try again.");
+    if (vehicle) {
+      try {
+        console.log(values);
+        toast(
+          <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+            <code className="text-white">
+              {JSON.stringify(values, null, 2)}
+            </code>
+          </pre>
+        );
+      } catch (error) {
+        console.error("Form submission error", error);
+        toast.error("Failed to submit the form. Please try again.");
+      }
+    } else {
+      try {
+        console.log(values);
+        toast(
+          <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+            <code className="text-white">
+              {JSON.stringify(values, null, 2)}
+            </code>
+          </pre>
+        );
+      } catch (error) {
+        console.error("Form submission error", error);
+        toast.error("Failed to submit the form. Please try again.");
+      }
     }
   }
 
@@ -102,7 +124,12 @@ export default function VehicleForm() {
             <FormItem>
               <FormLabel>name</FormLabel>
               <FormControl>
-                <Input placeholder="Category Name" type="text" {...field} />
+                <Input
+                  placeholder="Category Name"
+                  type="text"
+                  {...field}
+                  value={field.value}
+                />
               </FormControl>
 
               <FormMessage />
@@ -270,7 +297,12 @@ export default function VehicleForm() {
                 <FormItem>
                   <FormLabel>Model Year</FormLabel>
                   <FormControl>
-                    <Input placeholder="" type="number" {...field} />
+                    <Input
+                      placeholder=""
+                      type="number"
+                      {...field}
+                      onChange={(e) => field.onChange(+e.target.value)}
+                    />
                   </FormControl>
                   <FormDescription>Model Year</FormDescription>
                   <FormMessage />
@@ -287,7 +319,12 @@ export default function VehicleForm() {
                 <FormItem>
                   <FormLabel>Seater</FormLabel>
                   <FormControl>
-                    <Input placeholder="" type="" {...field} />
+                    <Input
+                      placeholder=""
+                      type="number"
+                      {...field}
+                      onChange={(e) => field.onChange(+e.target.value)}
+                    />
                   </FormControl>
 
                   <FormMessage />
@@ -306,7 +343,8 @@ export default function VehicleForm() {
                 <FormItem>
                   <FormLabel>Rental Cost</FormLabel>
                   <FormControl>
-                    <Input placeholder="shadcn" type="number" {...field} />
+                    <Input placeholder="shadcn" type="number" {...field} 
+                    onChange={(e) => field.onChange(+e.target.value)}/>
                   </FormControl>
 
                   <FormMessage />
@@ -323,7 +361,8 @@ export default function VehicleForm() {
                 <FormItem>
                   <FormLabel>Power Horse</FormLabel>
                   <FormControl>
-                    <Input placeholder="" type="number" {...field} />
+                    <Input placeholder="" type="number" {...field}
+                    onChange={(e) => field.onChange(+e.target.value)} />
                   </FormControl>
 
                   <FormMessage />
@@ -340,7 +379,9 @@ export default function VehicleForm() {
                 <FormItem>
                   <FormLabel>Kilometers Included</FormLabel>
                   <FormControl>
-                    <Input placeholder="" type="number" {...field} />
+                    <Input placeholder="" type="number" {...field} 
+                    onChange={(e) => field.onChange(+e.target.value)}
+                    />
                   </FormControl>
 
                   <FormMessage />
@@ -381,7 +422,9 @@ export default function VehicleForm() {
                 <FormItem>
                   <FormLabel>Discount By Percent</FormLabel>
                   <FormControl>
-                    <Input placeholder="" type="" {...field} />
+                    <Input placeholder="" type="number" {...field} 
+                    onChange={(e) => field.onChange(+e.target.value)}
+                    />
                   </FormControl>
 
                   <FormMessage />
@@ -398,7 +441,9 @@ export default function VehicleForm() {
                 <FormItem>
                   <FormLabel>Discount By Amount</FormLabel>
                   <FormControl>
-                    <Input placeholder="" type="" {...field} />
+                    <Input placeholder="" type="number" {...field} 
+                    onChange={(e) => field.onChange(+e.target.value)}
+                    />
                   </FormControl>
 
                   <FormMessage />
