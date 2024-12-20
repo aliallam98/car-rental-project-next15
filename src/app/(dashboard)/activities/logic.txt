@@ -1,0 +1,24 @@
+
+
+this page will includes the followings : 
+
+* Header * 
+1- searchBar that can use it to search about specific word
+2- filter by user that has permission to use dashboard and create activities
+3- filter by activity type 
+4- filter by date range and hours
+5- Export button
+6- add new activity button Regarding this will write a separated logic 
+
+* Body * 
+1- table to display all data as a records 
+2  each record will has title - details if exists - createdBy - timestamp - (icon - avatar)
+
+
+
+* Footer * 
+1- only has pagination to navigate between records pages
+
+
+- Display message whenever there is no data to display
+

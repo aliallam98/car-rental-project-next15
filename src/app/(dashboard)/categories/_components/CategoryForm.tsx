@@ -17,23 +17,43 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { categoryFormSchema, ICategorySchema } from "@/schemas";
 
-export default function CategoryForm() {
+interface IProps  {
+  category?: Partial<ICategorySchema> 
+}
+
+export default function CategoryForm({ category }: IProps) {
   const form = useForm<ICategorySchema>({
     resolver: zodResolver(categoryFormSchema),
+    defaultValues: category ? category : {},
   });
 
   function onSubmit(values: ICategorySchema) {
-    try {
-      console.log(values);
-      toast(
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      );
-    } catch (error) {
-      console.error("Form submission error", error);
-      toast.error("Failed to submit the form. Please try again.");
+    if (category) {
+      try {
+        console.log(values);
+        toast(
+          <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+            <code className="text-white">{JSON.stringify(values, null, 2)}</code>
+          </pre>
+        );
+      } catch (error) {
+        console.error("Form submission error", error);
+        toast.error("Failed to submit the form. Please try again.");
+      }
+    } else {
+      try {
+        console.log(values);
+        toast(
+          <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+            <code className="text-white">{JSON.stringify(values, null, 2)}</code>
+          </pre>
+        );
+      } catch (error) {
+        console.error("Form submission error", error);
+        toast.error("Failed to submit the form. Please try again.");
+      }
     }
+    
   }
 
   return (
