@@ -18,6 +18,6 @@ export const sidebarItems = [
   { name: "Vehicles", href: "/vehicles", icon: Car },
   { name: "Reservations", href: "/reservations", icon: CalendarDays },
   { name: "Reports", href: "/reports", icon: BarChart },
-  { name: "Activities", href: "/Activities", icon: Activity },
+  { name: "activities", href: "/Activities", icon: Activity },
   { name: "Settings", href: "/settings", icon: Settings },
 ];

@@ -12,7 +12,8 @@ const VehicleCreationPage = () => {
         linkHref="/vehicles"
         icon={ArrowLeft}
       />
-      <VehicleForm/>
+      <VehicleForm />
+
     </SectionWithContainer>
   );
 };
