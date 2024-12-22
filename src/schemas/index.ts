@@ -70,3 +70,12 @@ export const reservationFormSchema = z.object({
   bookingReferenceNumber: z.string(),
 });
 export type IReservationSchema = z.infer<typeof reservationFormSchema>;
+
+
+export const reportFormSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  type: z.string(),
+  status: z.string(),
+});
+export type IReportSchema = z.infer<typeof reportFormSchema>;
