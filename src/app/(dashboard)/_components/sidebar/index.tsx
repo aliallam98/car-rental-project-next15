@@ -17,8 +17,8 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
-import { sidebarItems } from "@/app/constants/sidebar";
 import Link from "next/link";
+import { sidebarItems } from "@/constants/sidebar";
 
 export function DashboardSidebar({
   ...props
