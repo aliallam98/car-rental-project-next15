@@ -119,6 +119,25 @@ export default function VehicleForm({ vehicle }: IProps) {
       >
         <FormField
           control={form.control}
+          name="plateNumber"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Plate Number</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Plate number"
+                  type="text"
+                  {...field}
+                  value={field.value}
+                />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
           name="name"
           render={({ field }) => (
             <FormItem>

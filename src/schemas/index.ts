@@ -18,6 +18,7 @@ export type IBrandSchema = z.infer<typeof categoryFormSchema>;
 
 export const vehicleFormSchema = z.object({
   id:z.number().optional(),
+  plateNumber: z.string(),
   name: z.string().min(3),
   description: z.string().optional(),
   categoryId: z.string(),
@@ -73,6 +74,7 @@ export type IReservationSchema = z.infer<typeof reservationFormSchema>;
 
 
 export const reportFormSchema = z.object({
+  id:z.string().optional(),
   title: z.string(),
   description: z.string(),
   type: z.string(),
